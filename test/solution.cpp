@@ -44,9 +44,9 @@ TEST_CASE("Validate getMax") {
     test->left = new Node(50);
     test->right = new Node(140);
     test->left->left = new Node(25);
-    CHECK(getMin(test)->key == 140);
+    CHECK(getMax(test)->key == 140);
     test->right->right = new Node(180);
-    CHECK(getMin(test)->key == 180);
+    CHECK(getMax(test)->key == 180);
 
     clean(test);
 }
@@ -75,7 +75,7 @@ TEST_CASE("Validate insert") {
     test->right = new Node(140);
     test->left->left = new Node(25);
     test = insert(test, 150);
-    CHECK(test->right->right->key == 180);
+    CHECK(test->right->right->key == 150);
     test = insert(test, 75);
     CHECK(test->left->right->key == 75);
 
